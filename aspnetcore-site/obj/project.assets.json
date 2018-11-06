@@ -11501,23 +11501,23 @@
     ]
   },
   "packageFolders": {
-    "/root/.nuget/packages/": {},
-    "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/adambaldwin/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/aspcore/aspnetcore-site.csproj",
+      "projectUniqueName": "/Users/adambaldwin/Documents/_dev/_play/Docker/docker-plsite-samples/aspnetcore-site/aspnetcore-site.csproj",
       "projectName": "aspnetcore-site",
-      "projectPath": "/aspcore/aspnetcore-site.csproj",
-      "packagesPath": "/root/.nuget/packages/",
-      "outputPath": "/aspcore/obj/",
+      "projectPath": "/Users/adambaldwin/Documents/_dev/_play/Docker/docker-plsite-samples/aspnetcore-site/aspnetcore-site.csproj",
+      "packagesPath": "/Users/adambaldwin/.nuget/packages/",
+      "outputPath": "/Users/adambaldwin/Documents/_dev/_play/Docker/docker-plsite-samples/aspnetcore-site/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/root/.nuget/NuGet/NuGet.Config"
+        "/Users/adambaldwin/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"

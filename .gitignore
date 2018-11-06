@@ -63,8 +63,9 @@ typings/
 
 .idea
 
-obj
+aspnetcore/obj
 obj
 bin
 
 *.DS_Store
+
