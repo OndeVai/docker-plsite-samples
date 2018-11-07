@@ -34,4 +34,5 @@ WORKDIR /app
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "aspnetcore-site.dll"]
 
+#docker build -f prod.Dockerfile -t abaldwin/aspnetcore:prod .
 #docker run -p 8080:80 abaldwin/aspnetcore:prod .
