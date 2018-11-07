@@ -1,10 +1,19 @@
 #------------mongodb linking notes (named linking):
-#first pull the mongo docker image
+#--first pull the mongo docker image
 #docker pull mongo
-#then run the mongo container with name
+#--then run the mongo container with name
 #docker run -d --name my-mongodb mongo
-#then run this container linking the names
+#--then run this container linking the names
 #docker run -p 3000:3000 --link my-mongodb:mongodb abaldwin/node
+
+
+#------------mongodb linking notes (container networks) --THIS IS PREFERRED
+#--first create a container network
+#docker network create --driver bridge mongo_isolated_network
+#--then run the mongo container with a name and within the network
+#docker run -d --net=mongo_isolated_network --name mongodb mongo
+#--then run the node app container with a name and within the network
+#docker run --net=mongo_isolated_network --name nodeapp -p 3000:3000 abaldwin/node
 
 
 #the image we are starting from (image:tag)

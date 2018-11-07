@@ -1,13 +1,23 @@
-#linking sql server (named link method)
-#pull the docker linux image
+#----------linking sql server (named link method)
+#--pull the docker linux image
 #docker pull mcr.microsoft.com/mssql/server
-#run the docker linux container in as sql express
+#--run the docker linux container in as sql express
 #docker run --name my-mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssword66' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest
-#then run this container linking the names
+#--then run this container linking the names
 #docker run -p 8080:5000 --link my-mssql:mssql abaldwin/aspnetcore:dev
+
+#------------sql server linking notes (container networks) --THIS IS PREFERRED
+#--first create a container network
+#docker network create --driver bridge sql_isolated_network
+#--then run the sql server container with a name and within the network
+#docker run -d --net=sql_isolated_network --name mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssword66' -e 'MSSQL_PID=Express' -p 1433:1433 mcr.microsoft.com/mssql/server:latest
+#--then run the node app container with a name and within the network
+#docker run --net=sql_isolated_network --name aspnetapp -p 8080:5000 abaldwin/aspnetcore:dev
+
 
 #get the base image for runtime, 
 FROM microsoft/dotnet:2.1-sdk
+#set the connection string for the code to reference the container's db server instead of localhost (in appSettings.json)
 ENV ConnectionStrings:DefaultConnection="Server=mssql;Database=EFGetStarted.AspNetCore.NewDb;uid=sa;pwd=P@ssword66;ConnectRetryCount=0"
 
 WORKDIR /src
