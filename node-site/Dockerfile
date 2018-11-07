@@ -14,7 +14,7 @@ COPY . /var/www
 WORKDIR /var/www
 
 #mount a volume
-#VOLUME ["/var/www"]
+#VOLUME ["/var/www"]  #todo need to mount node modules as data volume for dev
 
 #tasks to run before entrypoint called
 RUN npm install

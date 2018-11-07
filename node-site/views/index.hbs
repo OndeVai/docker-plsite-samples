@@ -1,2 +1,8 @@
 <h1>{{title}}</h1>
-<p>Welcome to {{title}} running in Docker 222222!</p>
+<p>Welcome to {{title}} running in Docker with mongo!</p>
+<h2>Mongo data</h2>
+<ul>
+    {{#each docs}}
+        <li>Title: {{title}}</li>
+    {{/each}}
+</ul>
