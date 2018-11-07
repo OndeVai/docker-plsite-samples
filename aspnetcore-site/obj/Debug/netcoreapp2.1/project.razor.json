@@ -2,5 +2,13 @@
   "ProjectFilePath": "/Users/adambaldwin/Documents/_dev/_play/Docker/docker-plsite-samples/aspnetcore-site/aspnetcore-site.csproj",
   "TargetFramework": "netcoreapp2.1",
   "TagHelpers": [],
-  "Configuration": null
+  "Configuration": {
+    "ConfigurationName": "MVC-2.1",
+    "LanguageVersion": "2.1",
+    "Extensions": [
+      {
+        "ExtensionName": "MVC-2.1"
+      }
+    ]
+  }
 }
