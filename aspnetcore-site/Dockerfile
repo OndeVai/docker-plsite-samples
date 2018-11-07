@@ -4,7 +4,7 @@
 #run the docker linux container in as sql express
 #docker run --name my-mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssword66' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest
 #then run this container linking the names
-#docker run -p 8080:5000 --link my-mssql:mssql abaldwin/aspnetcore:dev .
+#docker run -p 8080:5000 --link my-mssql:mssql abaldwin/aspnetcore:dev
 
 #get the base image for runtime, 
 FROM microsoft/dotnet:2.1-sdk
