@@ -10,9 +10,16 @@ namespace aspnetcore_site.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly MyDbContext _dbContext;
+
+        public HomeController(MyDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public IActionResult Index()
         {
-            return View();
+            var vm = _dbContext.Documents.ToList();
+            return View(vm);
         }
 
         public IActionResult About()

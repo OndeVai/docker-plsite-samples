@@ -1,6 +1,21 @@
-﻿@{
+﻿@model IEnumerable<Document>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Sql server docker data:</h2>
+        <ul>
+            @{
+                foreach(var document in Model){
+                    <li>@document.Title</li>
+                }
+            }
+        </ul>
+    </div>
+</div>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">

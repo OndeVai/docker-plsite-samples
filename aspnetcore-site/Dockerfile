@@ -1,5 +1,15 @@
+#linking sql server (named link method)
+#pull the docker linux image
+#docker pull mcr.microsoft.com/mssql/server
+#run the docker linux container in as sql express
+#docker run --name my-mssql -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=P@ssword66' -e 'MSSQL_PID=Express' -p 1433:1433 -d mcr.microsoft.com/mssql/server:latest
+#then run this container linking the names
+#docker run -p 8080:5000 --link my-mssql:mssql abaldwin/aspnetcore:dev .
+
 #get the base image for runtime, 
 FROM microsoft/dotnet:2.1-sdk
+ENV ConnectionStrings:DefaultConnection="Server=mssql;Database=EFGetStarted.AspNetCore.NewDb;uid=sa;pwd=P@ssword66;ConnectRetryCount=0"
+
 WORKDIR /src
 #copy csproj from local directory to /src directory
 COPY ["aspnetcore-site.csproj", "./"]
