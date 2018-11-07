@@ -1,12 +1,22 @@
 var express = require('express');
 var router = express.Router();
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://localhost:27017';
+var host = process.env.MONGODB_HOST || 'localhost:27017';
+const url = `mongodb://${host}`;
 const dbName = 'myproject';
 
 function findCollection(callback) {
 
+	console.log(`trying to connect to mongo at '${url}'`);
+
 	MongoClient.connect(url, function (err, client) {
+
+		if(err) { //this is just crappy demo code
+			console.error('error connecting to mongo');
+			console.error(err);
+			throw err;
+		}
+
 		console.log("Connected successfully to server");
 		const db = client.db(dbName);
 		const collection = db.collection('documents');
