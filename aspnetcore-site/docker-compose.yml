@@ -1,0 +1,27 @@
+version: '3'
+services:
+  aspnetcore:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+    - "8080:5000"
+    networks:
+    - aspnetcore-network
+    depends_on:
+    - mssql
+    environment:
+    - "ConnectionStrings:DefaultConnection=Server=mssql;Database=EFGetStarted.AspNetCore.NewDb;uid=sa;pwd=P@ssword66;ConnectRetryCount=0"
+  mssql:
+    image: mcr.microsoft.com/mssql/server:latest
+    ports:
+      - "1433:1433"
+    environment:
+    - "ACCEPT_EULA=Y"
+    - "SA_PASSWORD=P@ssword66"
+    - "MSSQL_PID=Express"
+    networks:
+    - aspnetcore-network
+networks:
+  aspnetcore-network:
+    driver: bridge

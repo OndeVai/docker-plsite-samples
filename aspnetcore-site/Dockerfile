@@ -17,9 +17,6 @@
 
 #get the base image for runtime, 
 FROM microsoft/dotnet:2.1-sdk
-#set the connection string for the code to reference the container's db server instead of localhost (in appSettings.json)
-ENV ConnectionStrings:DefaultConnection="Server=mssql;Database=EFGetStarted.AspNetCore.NewDb;uid=sa;pwd=P@ssword66;ConnectRetryCount=0"
-
 WORKDIR /src
 #copy csproj from local directory to /src directory
 COPY ["aspnetcore-site.csproj", "./"]
